@@ -1,5 +1,0 @@
-Use Factory GUI
-	flash ROOter factory firmware
-
-
-	

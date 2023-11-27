@@ -1,2 +1,0 @@
-config usb 'usb'
-	option usb '0'

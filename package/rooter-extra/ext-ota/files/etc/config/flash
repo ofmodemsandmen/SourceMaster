@@ -1,6 +1,0 @@
-
-config flash 'flash'
-	option time '03:00'
-	option enabled '0'
-	option last ""
-

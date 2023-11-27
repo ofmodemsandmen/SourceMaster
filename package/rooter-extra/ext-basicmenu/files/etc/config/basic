@@ -1,3 +1,0 @@
-config basic 'basic'
-	option modem '1'
-	option wifi '1'
