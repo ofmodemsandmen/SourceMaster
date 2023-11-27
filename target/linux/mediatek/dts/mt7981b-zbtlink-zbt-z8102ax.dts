@@ -73,6 +73,13 @@
 
 	};
 	
+	watchdog {
+		compatible = "linux,wdt-gpio";
+		gpios = <&pio 2 GPIO_ACTIVE_HIGH>;
+		hw_algo = "toggle";
+		hw_margin_ms = <1000>;
+	};
+	
 	usb_vbus: regulator-usb-vbus {
 		compatible = "regulator-fixed";
 		regulator-name = "usb_vbus";
