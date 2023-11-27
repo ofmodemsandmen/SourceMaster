@@ -1,0 +1,21 @@
+Source-Makefile: package/rooter-extra/ext-selectisp/Makefile
+
+Package: ext-selectisp
+Submenu: Optional Applications
+Version: 1.000-1
+Depends: +libc +coreutils-base64
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: utils
+Category: ROOter
+Repository: base
+Title: support for ISP Selection
+Maintainer: Created by DM/makefile by Cobia@whirlpool
+Source: 
+Type: ipkg
+Description:   Helper scripts to add ISP Selection
+Created by DM/makefile by Cobia@whirlpool
+@@
+
+

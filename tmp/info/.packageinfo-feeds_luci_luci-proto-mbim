@@ -1,0 +1,24 @@
+Source-Makefile: package/feeds/luci/luci-proto-mbim/Makefile
+Override: rooter-builds/0protocols/luci-proto-mbim
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-proto-mbim
+Submenu: 5. Protocols
+Version: x
+Depends: +libc 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: luci
+Title: Support for MBIM
+Maintainer: OpenWrt LuCI community
+Source: 
+Type: ipkg
+Description: Support for MBIM
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+

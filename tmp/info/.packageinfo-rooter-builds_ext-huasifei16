@@ -1,0 +1,20 @@
+Source-Makefile: package/rooter-builds/ext-huasifei16/Makefile
+
+Package: ext-huasifei16
+Version: 1.000-1
+Depends: +libc +ext-huasifei +luci-app-mwan3 +luci-app-dnsmasq-ipset
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: utils
+Category: ROOter
+Repository: base
+Title: ROOter support w/o MWan3 for Huasifei
+Maintainer: Created by DM/makefile by Cobia@whirlpool
+Source: 
+Type: ipkg
+Description:   Helper scripts to enable ROOter support for Huasifei
+Created by DM/makefile by Cobia@whirlpool
+@@
+
+

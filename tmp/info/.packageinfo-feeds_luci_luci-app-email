@@ -1,0 +1,23 @@
+Source-Makefile: package/feeds/luci/luci-app-email/Makefile
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-app-email
+Submenu: 3. Applications
+Version: x
+Depends: +libc +luci-base +emailrelay
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: luci
+Title: LuCI app for email server configuration (EmailRelay)
+Maintainer: OpenWrt LuCI community
+Source: 
+Type: ipkg
+Description: LuCI app for email server configuration (EmailRelay)
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+

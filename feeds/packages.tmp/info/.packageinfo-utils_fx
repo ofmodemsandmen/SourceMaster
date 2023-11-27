@@ -1,0 +1,25 @@
+Source-Makefile: feeds/packages/utils/fx/Makefile
+Build-Depends: golang/host
+
+Package: fx
+Version: 31.0.0-1
+Depends: +libc @(aarch64||arm||i386||i686||mips||mips64||mips64el||mipsel||powerpc64||riscv64||x86_64)
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: utils
+Category: Utilities
+Repository: base
+Title: Terminal JSON viewer & processor
+Maintainer: Fabian Lipken <dynasticorpheus@gmail.com>
+Source: fx-31.0.0.tar.gz
+License: MIT
+LicenseFiles: LICENSE
+Type: ipkg
+Description:   Fx is a dual-purpose command-line tool tailored for JSON, providing
+  both a terminal-based JSON viewer and a JSON processing utility.
+https://github.com/antonmedv/fx/
+Fabian Lipken <dynasticorpheus@gmail.com>
+@@
+
+

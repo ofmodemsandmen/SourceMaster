@@ -1,0 +1,47 @@
+Source-Makefile: package/feeds/packages/tiff/Makefile
+
+Package: libtiff
+Version: 4.5.0-1
+Depends: +libc +zlib +libjpeg
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: libs
+Category: Libraries
+Repository: packages
+Title: TIFF library
+Maintainer: Jiri Slachta <jiri@slachta.eu>
+Source: tiff-4.5.0.tar.gz
+License: BSD-3-Clause
+LicenseFiles: COPYRIGHT
+CPE-ID: cpe:/a:libtiff:libtiff
+ABI-Version: 6
+Type: ipkg
+Description: TIFF library
+http://simplesystems.org/libtiff/
+Jiri Slachta <jiri@slachta.eu>
+@@
+
+Package: tiff-utils
+Submenu: Image Manipulation
+Version: 4.5.0-1
+Depends: +libc +libtiff
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: utils
+Category: Utilities
+Repository: packages
+Title: TIFF utilities
+Maintainer: Jiri Slachta <jiri@slachta.eu>
+Source: tiff-4.5.0.tar.gz
+License: BSD-3-Clause
+LicenseFiles: COPYRIGHT
+CPE-ID: cpe:/a:libtiff:libtiff
+Type: ipkg
+Description: TIFF utilities
+http://simplesystems.org/libtiff/
+Jiri Slachta <jiri@slachta.eu>
+@@
+
+

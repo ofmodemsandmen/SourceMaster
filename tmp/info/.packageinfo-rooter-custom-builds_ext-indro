@@ -1,0 +1,20 @@
+Source-Makefile: package/rooter-custom-builds/ext-indro/Makefile
+
+Package: ext-indro
+Version: 1.000-1
+Depends: +libc +luci +ext-rooter-basic +build-admin +pingtest +luci-app-mwan3 +luci-app-dnsmasq-ipset +luci-app-rootervpn +ext-wireguard +bwmon +464xlat +webconsole +ca-bundle +ca-certificates +libustream-wolfssl +arc-storage +luci-theme-argon +luci-app-sqm +kmod-sched-cake +luci-app-nft-qos +ext-command +ext-speedtest +openvpn-easy-rsa +openvpn-openssl +ext-extra +luci-app-hotspot +luci-app-guestwifi +usbmuxd +libusbmuxd-utils +libimobiledevice-utils +kmod-usb-net-ipheth +usbutils +openssl-util +irqbalance +wpad +wget +qfirehose +luci-app-vpnbypass
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: utils
+Category: ROOter
+Repository: base
+Title: ROOter support for InDro routers
+Maintainer: Created by DM/makefile by Cobia@whirlpool
+Source: 
+Type: ipkg
+Description:   Helper scripts to enable support for InDro routers
+Created by DM/makefile by Cobia@whirlpool
+@@
+
+

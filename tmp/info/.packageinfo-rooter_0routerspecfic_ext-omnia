@@ -1,0 +1,21 @@
+Source-Makefile: package/rooter/0routerspecfic/ext-omnia/Makefile
+
+Package: ext-omnia
+Submenu: Router Specific
+Version: 1.000-1
+Depends: +libc 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: utils
+Category: ROOter
+Repository: base
+Title: support for Omnia
+Maintainer: Created by DM/makefile by Cobia@whirlpool
+Source: 
+Type: ipkg
+Description:   Helper scripts to add Omnia
+Created by DM/makefile by Cobia@whirlpool
+@@
+
+

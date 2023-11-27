@@ -1,0 +1,41 @@
+Source-Makefile: package/firmware/ath11k-firmware/Makefile
+
+Package: ath11k-firmware-ipq8074
+Version: 2023-08-22-d8f82a98ff1aef330d65d8b5660b46d1a9809ee3-1
+Depends: +libc 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: firmware
+Category: Firmware
+Repository: base
+Title: IPQ8074 ath11k firmware
+Maintainer: Robert Marko <robimarko@gmail.com>
+Source: ath11k-firmware-2023-08-22-d8f82a98ff1aef330d65d8b5660b46d1a9809ee3.tar.xz
+LicenseFiles: LICENSE.qca_firmware
+Type: ipkg
+Description: IPQ8074 ath11k firmware
+https://github.com/quic/upstream-wifi-fw.git
+Robert Marko <robimarko@gmail.com>
+@@
+
+Package: ath11k-firmware-qcn9074
+Version: 2023-08-22-d8f82a98ff1aef330d65d8b5660b46d1a9809ee3-1
+Depends: +libc 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: firmware
+Category: Firmware
+Repository: base
+Title: QCN9074 ath11k firmware
+Maintainer: Robert Marko <robimarko@gmail.com>
+Source: ath11k-firmware-2023-08-22-d8f82a98ff1aef330d65d8b5660b46d1a9809ee3.tar.xz
+LicenseFiles: LICENSE.qca_firmware
+Type: ipkg
+Description: QCN9074 ath11k firmware
+https://github.com/quic/upstream-wifi-fw.git
+Robert Marko <robimarko@gmail.com>
+@@
+
+
