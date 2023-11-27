@@ -1,0 +1,21 @@
+Source-Makefile: package/rooter-custom-builds/ext-custom-multi/Makefile
+
+Package: ext-custom-multi
+Submenu: CustomBuilds
+Version: 1.000-1
+Depends: +libc +ext-wireguard +ext-zerotier +ext-rooter-basic +build-admin +build-iphone +build-luci +build-wifi +ext-simplegps +bwmon +ext-speedtest +ext-extra +ext-netselect +tc +kmod-sched-core +kmod-ifb +iptables +iptables-mod-ipopt +iptables-mod-conntrack-extra +kmod-sched-cake +arc-storage +bwallocate +pingtest +webconsole +ext-simpin +ext-texting
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: utils
+Category: ROOter
+Repository: base
+Title: MultiUser Build packages
+Maintainer: Created by DM/makefile by Cobia@whirlpool
+Source: 
+Type: ipkg
+Description:   MultiUser Build packages
+Created by DM/makefile by Cobia@whirlpool
+@@
+
+

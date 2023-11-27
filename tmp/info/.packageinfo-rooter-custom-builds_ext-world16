@@ -1,0 +1,20 @@
+Source-Makefile: package/rooter-custom-builds/ext-world16/Makefile
+
+Package: ext-world16
+Version: 1.000-1
+Depends: +libc +ext-world +luci-app-mwan3 +luci-app-dnsmasq-ipset
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: utils
+Category: ROOter
+Repository: base
+Title: ROOter support for World routers
+Maintainer: Created by DM/makefile by Cobia@whirlpool
+Source: 
+Type: ipkg
+Description:   Helper scripts to enable support for World routers
+Created by DM/makefile by Cobia@whirlpool
+@@
+
+

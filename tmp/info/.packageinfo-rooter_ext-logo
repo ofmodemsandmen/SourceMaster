@@ -1,0 +1,21 @@
+Source-Makefile: package/rooter/ext-logo/Makefile
+
+Package: ext-logo
+Submenu: Optional Applications
+Version: 4.500-1
+Depends: +libc +luci-theme-openwrt-2020 +luci-theme-material
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: utils
+Category: ROOter
+Repository: base
+Title: ROOter logos
+Maintainer: Created by DM/makefile by Cobia@whirlpool
+Source: 
+Type: ipkg
+Description:   ROOter logos
+Created by DM/makefile by Cobia@whirlpool
+@@
+
+

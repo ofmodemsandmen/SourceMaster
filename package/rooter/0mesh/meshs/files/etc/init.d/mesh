@@ -1,0 +1,82 @@
+#!/bin/sh /etc/rc.common
+. /lib/functions.sh
+
+log() {
+	logger -t "ADD MESH" "$@"
+}
+
+START=90
+
+do_radio() {
+	local config=$1
+	local channel
+	config_get channel $1 channel
+	if [ $channel -gt 20 ]; then
+		mdev=$config
+	fi
+}
+start() {
+	log "add Mesh"
+	mdev=""
+	config_load wireless
+	config_foreach do_radio wifi-device
+	me=$(uci -q get wireless.wmesh)
+	if [ -z "$me" ]; then
+		uci set wireless.wmesh=wifi-iface
+		uci set wireless.wmesh.device="$mdev"
+		uci set wireless.wmesh.network='mesh'
+		uci set wireless.wmesh.mode='mesh'
+		uci set wireless.wmesh.mesh_id='MeshCloud'
+		uci set wireless.wmesh.encryption='none'
+		uci set wireless.wmesh.key='12345678'
+		uci set wireless.wmesh.mesh_fwding='0'
+		uci set wireless.wmesh.mesh_ttl='1'
+		uci set wireless.wmesh.mcast_rate='24000'
+		uci set wireless.wmesh.disabled='0'
+		uci set wireless.wmesh.mesh_rssi_threshold='0'
+		uci commit wireless
+	fi
+	
+	me=$(uci -q get network.bat0)
+	if [ -z "$me" ]; then
+		uci set network.bat0=interface
+		uci set network.bat0.proto='batadv'
+		uci set network.bat0.routing_algo='BATMAN_IV'
+		uci set network.bat0.aggregated_ogms='1'
+		uci set network.bat0.ap_isolation='0'
+		uci set network.bat0.bonding='0'
+		uci set network.bat0.bridge_loop_avoidance'1'
+		uci set network.bat0.distributed_arp_table='1'
+		uci set network.bat0.fragmentation='1'
+		uci set network.bat0.gw_mode='off'
+		uci set network.bat0.hop_penalty='30'
+		uci set network.bat0.isolation_mark='0x00000000/0x00000000'
+		uci set network.bat0.log_level='0'
+		uci set network.bat0.multicast_mode='1'
+		uci set network.bat0.multicast_fanout='16'
+		uci set network.bat0.network_coding='0'
+		uci set network.bat0.orig_interval='1000'
+		uci commit network	
+	fi
+	me=$(uci -q get network.mesh)
+	if [ -z "$me" ]; then
+		uci set network.mesh=interface
+		uci set network.mesh.proto='batadv_hardif'
+		uci set network.mesh.master='bat0'
+		uci set network.mesh.mtu='1536'
+		uci commit network	
+	fi
+	
+	#uci set alfred.alfred.batmanif='bat0'
+	#uci set alfred.alfred.disabled='0'
+	#uci commit alfred
+	
+	ch=$(uci -q get wireless.$mdev.channel)
+	if [ "$ch" -ne 44 ]; then
+		uci set wireless.$mdev.channel='44'
+		uci commit wireless
+	fi
+	wifi up
+	/etc/init.d/network reload
+}
+

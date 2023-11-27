@@ -1,0 +1,12 @@
+
+config basic 'basic'
+	option wizard '1'
+	option detect '0'
+
+config wizard 'wizard'
+	option radionum '2'
+	option ssid1 ''
+	option password1 ''
+	option ssid2 ''
+	option password2 ''
+	

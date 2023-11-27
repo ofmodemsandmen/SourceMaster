@@ -1,0 +1,25 @@
+Source-Makefile: package/feeds/packages/nerdctl/Makefile
+Build-Depends: golang/host
+
+Package: nerdctl
+Version: 1.6.2-1
+Depends: +libc @(aarch64||arm||i386||i686||mips||mips64||mips64el||mipsel||powerpc64||riscv64||x86_64)
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: utils
+Category: Utilities
+Repository: packages
+Title: contaiNERD CTL - Docker-compatible CLI for containerd
+Maintainer: Luca Barbato <lu_zero@gentoo.org>
+Source: nerdctl-1.6.2.tar.gz
+License: Apache-2.0
+LicenseFiles: LICENSE
+Type: ipkg
+Description:   Docker-compatible CLI for containerd, with support for Compose, Rootless,
+  eStargz, OCIcrypt, IPFS, ...
+https://containerd.io
+Luca Barbato <lu_zero@gentoo.org>
+@@
+
+

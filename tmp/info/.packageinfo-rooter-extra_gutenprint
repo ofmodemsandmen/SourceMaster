@@ -1,0 +1,26 @@
+Source-Makefile: package/rooter-extra/gutenprint/Makefile
+Build-Depends: gutenprint/host libiconv-full
+Build-Depends/host: libiconv-full/host
+Build-Types: host
+
+Package: gutenprint-cups
+Submenu: Printing
+Version: 5.3.4-2022-1
+Depends: +libc +cups +libcupsimage +libiconv-full
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: Gutenprint CUPS drivers
+Maintainer: 
+Source: gutenprint-5.3.4-2022.tar.xz
+Type: ipkg
+Description: 	Gutenprint CUPS drivers for a wide range of Canon, Epson, HP and
+	compatible printers.
+http://gimp-print.sourceforge.net/
+
+@@
+
+

@@ -1,0 +1,21 @@
+Source-Makefile: package/rooter-extra/ext-wizard/Makefile
+
+Package: ext-wizard
+Submenu: Optional Applications
+Version: 1.000-1
+Depends: +libc +ext-basicmenu
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: utils
+Category: ROOter
+Repository: base
+Title: support for wizard
+Maintainer: Created by DM/makefile by Cobia@whirlpool
+Source: 
+Type: ipkg
+Description:   Helper scripts to add wizard
+Created by DM/makefile by Cobia@whirlpool
+@@
+
+

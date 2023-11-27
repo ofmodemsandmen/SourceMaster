@@ -1,0 +1,20 @@
+Source-Makefile: package/rooter-extra/quec_upload/Makefile
+
+Package: quec_upload
+Submenu: Optional Applications
+Version: 1
+Depends: +libc 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: utils
+Category: ROOter
+Title: Quectel UFS Upload
+Maintainer: Dairyman
+Source: 
+Type: ipkg
+Description:  Quectel FireHose
+Dairyman
+@@
+
+

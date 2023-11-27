@@ -1,0 +1,21 @@
+Source-Makefile: package/rooter-custom-builds/ext-custom-multi-openvpn/Makefile
+
+Package: ext-custom-multi-openvpn
+Submenu: CustomBuilds
+Version: 1.000-1
+Depends: +libc +ext-custom-multi +build-openvpn
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: utils
+Category: ROOter
+Repository: base
+Title: MultiUser Build packages
+Maintainer: Created by DM/makefile by Cobia@whirlpool
+Source: 
+Type: ipkg
+Description:   MultiUser Build packages
+Created by DM/makefile by Cobia@whirlpool
+@@
+
+

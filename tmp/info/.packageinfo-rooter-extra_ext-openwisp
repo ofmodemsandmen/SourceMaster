@@ -1,0 +1,21 @@
+Source-Makefile: package/rooter-extra/ext-openwisp/Makefile
+
+Package: ext-openwisp
+Submenu: Optional Applications
+Version: 1.000-1
+Depends: +libc +curl +lua +libuci-lua +luafilesystem +luci-lib-nixio +ca-certificates +lua-cjson +rpcd +rpcd-mod-iwinfo
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: utils
+Category: ROOter
+Repository: base
+Title: Openwisp
+Maintainer: Created by DM/makefile by Cobia@whirlpool
+Source: 
+Type: ipkg
+Description:   Helper scripts to install openwisp
+Created by DM/makefile by Cobia@whirlpool
+@@
+
+

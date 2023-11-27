@@ -1,0 +1,68 @@
+Source-Makefile: package/feeds/packages/iperf3-mt/Makefile
+
+Package: iperf3-mt
+Version: 3.15-mt-beta1-1
+Depends: +libc +libiperf3-mt
+Conflicts: iperf3 iperf3-ssl iperf3-mt-ssl
+Menu-Depends: 
+Provides: 
+Build-Variant: nossl
+Section: net
+Category: Network
+Repository: packages
+Title: iperf3 with multithreading
+Maintainer: Jonas Jelonek <jelonek.jonas@gmail.com>
+Source: iperf-iperf-3.15-mt-beta1.tar.gz
+License: BSD-3-Clause
+CPE-ID: cpe:/a:es:iperf3
+Type: ipkg
+Description:  iPerf3 is a modern alternative for measuring TCP and UDP bandwidth
+ performance, allowing the tuning of various parameters and
+ characteristics.
+ iperf3-mt has experimental multithreading support.
+https://github.com/esnet/iperf
+Jonas Jelonek <jelonek.jonas@gmail.com>
+@@
+
+Package: iperf3-mt-ssl
+Version: 3.15-mt-beta1-1
+Depends: +libc +libopenssl +libatomic
+Conflicts: iperf3 iperf3-ssl
+Menu-Depends: 
+Provides: 
+Build-Variant: ssl
+Section: net
+Category: Network
+Repository: packages
+Title: iperf3 with multithreading and iperf_auth support
+Maintainer: Jonas Jelonek <jelonek.jonas@gmail.com>
+Source: iperf-iperf-3.15-mt-beta1.tar.gz
+License: BSD-3-Clause
+CPE-ID: cpe:/a:es:iperf3
+Type: ipkg
+Description: iperf3 with multithreading and iperf_auth support
+https://github.com/esnet/iperf
+Jonas Jelonek <jelonek.jonas@gmail.com>
+@@
+
+Package: libiperf3-mt
+Version: 3.15-mt-beta1-1
+Depends: +libc +libatomic
+Conflicts: libiperf3
+Menu-Depends: 
+Provides: 
+Section: libs
+Category: Libraries
+Repository: packages
+Title: libiperf3 with multithreading
+Maintainer: Jonas Jelonek <jelonek.jonas@gmail.com>
+Source: iperf-iperf-3.15-mt-beta1.tar.gz
+License: BSD-3-Clause
+CPE-ID: cpe:/a:es:iperf3
+Type: ipkg
+Description:  Libiperf is a library providing an API for iperf3 functionality.
+https://github.com/esnet/iperf
+Jonas Jelonek <jelonek.jonas@gmail.com>
+@@
+
+

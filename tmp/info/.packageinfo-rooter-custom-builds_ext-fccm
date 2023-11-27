@@ -1,0 +1,20 @@
+Source-Makefile: package/rooter-custom-builds/ext-fccm/Makefile
+
+Package: ext-fccm
+Version: 1.000-1
+Depends: +libc +luci +ext-rooter-basic +pingtest +bwmon +464xlat +webconsole +extramenu +ext-blacklist +ext-blockport +ext-domain +ext-theme +luci-theme-argon +ca-bundle +ca-certificates +libustream-wolfssl +arc-storage +gutenprint-cups +cups +cups-bjnp +ext-speedtest +ext-extra +luci-app-hotspot +luci-app-guestwifi +usbutils +irqbalance +usbmuxd +libusbmuxd-utils +libimobiledevice-utils +kmod-usb-net-ipheth +wpad-openssl +wget
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: utils
+Category: ROOter
+Repository: base
+Title: ROOter support w/o MWan3 for 16meg and larger routers
+Maintainer: Created by DM/makefile by Cobia@whirlpool
+Source: 
+Type: ipkg
+Description:   Helper scripts to enable ROOter w/o MWan3 on 16meg and larger routers
+Created by DM/makefile by Cobia@whirlpool
+@@
+
+

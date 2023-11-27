@@ -1,0 +1,2 @@
+config ota 'ota'
+	option ip '146.190.42.58'

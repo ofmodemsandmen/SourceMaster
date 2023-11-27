@@ -1,0 +1,20 @@
+Source-Makefile: package/rooter-builds/ext-rbsxtr/Makefile
+
+Package: ext-rbsxtr
+Version: 1.000-1
+Depends: +libc +luci +luci-compat +ext-rooter-basic +ext-logo +luci-app-rootervpn +ext-wireguard +bwmon +464xlat +ca-bundle +ca-certificates +libustream-wolfssl +luci-app-sqm +kmod-sched-cake +ext-command +ext-speedtest +openvpn-easy-rsa +openvpn-openssl +ext-extra +nano +picocom +wget +webconsole
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: utils
+Category: ROOter
+Repository: base
+Title: ROOter support for RBSXTR routers
+Maintainer: Created by DM/makefile by Cobia@whirlpool
+Source: 
+Type: ipkg
+Description:   Helper scripts to enable ROOter support for RBSXTR routers
+Created by DM/makefile by Cobia@whirlpool
+@@
+
+

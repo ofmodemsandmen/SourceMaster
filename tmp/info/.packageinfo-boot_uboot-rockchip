@@ -1,0 +1,314 @@
+Source-Makefile: package/boot/uboot-rockchip/Makefile
+
+Package: u-boot-nanopc-t4-rk3399
+Default: y if (TARGET_rockchip_armv8_Default || TARGET_rockchip_armv8_DEVICE_friendlyarm_nanopc-t4 || TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopc-t4)
+Prereq-Check: 1
+Version: 2023.07.02-1
+Depends: +libc @!IN_SDK +PACKAGE_u-boot-nanopc-t4-rk3399:trusted-firmware-a-rk3399 @TARGET_rockchip_armv8
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: nanopc-t4-rk3399
+Section: boot
+Category: Boot Loaders
+Title: U-Boot for NanoPC T4
+Maintainer: Tobias Maedel <openwrt@tbspace.de>
+Source: u-boot-2023.07.02.tar.bz2
+License: GPL-2.0 GPL-2.0+
+LicenseFiles: Licenses/README
+Type: bin
+Hidden: 1
+Description: U-Boot for NanoPC T4
+http://www.denx.de/wiki/U-Boot
+Tobias Maedel <openwrt@tbspace.de>
+@@
+
+
+Package: u-boot-nanopi-r4s-rk3399
+Default: y if (TARGET_rockchip_armv8_Default || TARGET_rockchip_armv8_DEVICE_friendlyarm_nanopi-r4s || TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r4s)
+Prereq-Check: 1
+Version: 2023.07.02-1
+Depends: +libc @!IN_SDK +PACKAGE_u-boot-nanopi-r4s-rk3399:trusted-firmware-a-rk3399 @TARGET_rockchip_armv8
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: nanopi-r4s-rk3399
+Section: boot
+Category: Boot Loaders
+Title: U-Boot for NanoPi R4S
+Maintainer: Tobias Maedel <openwrt@tbspace.de>
+Source: u-boot-2023.07.02.tar.bz2
+License: GPL-2.0 GPL-2.0+
+LicenseFiles: Licenses/README
+Type: bin
+Hidden: 1
+Description: U-Boot for NanoPi R4S
+http://www.denx.de/wiki/U-Boot
+Tobias Maedel <openwrt@tbspace.de>
+@@
+
+
+Package: u-boot-rock-pi-4-rk3399
+Default: y if (TARGET_rockchip_armv8_Default || TARGET_rockchip_armv8_DEVICE_radxa_rock-pi-4a || TARGET_DEVICE_rockchip_armv8_DEVICE_radxa_rock-pi-4a)
+Prereq-Check: 1
+Version: 2023.07.02-1
+Depends: +libc @!IN_SDK +PACKAGE_u-boot-rock-pi-4-rk3399:trusted-firmware-a-rk3399 @TARGET_rockchip_armv8
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: rock-pi-4-rk3399
+Section: boot
+Category: Boot Loaders
+Title: U-Boot for Rock Pi 4
+Maintainer: Tobias Maedel <openwrt@tbspace.de>
+Source: u-boot-2023.07.02.tar.bz2
+License: GPL-2.0 GPL-2.0+
+LicenseFiles: Licenses/README
+Type: bin
+Hidden: 1
+Description: U-Boot for Rock Pi 4
+http://www.denx.de/wiki/U-Boot
+Tobias Maedel <openwrt@tbspace.de>
+@@
+
+
+Package: u-boot-rockpro64-rk3399
+Default: y if (TARGET_rockchip_armv8_Default || TARGET_rockchip_armv8_DEVICE_pine64_rockpro64 || TARGET_DEVICE_rockchip_armv8_DEVICE_pine64_rockpro64)
+Prereq-Check: 1
+Version: 2023.07.02-1
+Depends: +libc @!IN_SDK +PACKAGE_u-boot-rockpro64-rk3399:trusted-firmware-a-rk3399 @TARGET_rockchip_armv8
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: rockpro64-rk3399
+Section: boot
+Category: Boot Loaders
+Title: U-Boot for RockPro64
+Maintainer: Tobias Maedel <openwrt@tbspace.de>
+Source: u-boot-2023.07.02.tar.bz2
+License: GPL-2.0 GPL-2.0+
+LicenseFiles: Licenses/README
+Type: bin
+Hidden: 1
+Description: U-Boot for RockPro64
+http://www.denx.de/wiki/U-Boot
+Tobias Maedel <openwrt@tbspace.de>
+@@
+
+
+Package: u-boot-nanopi-r2c-rk3328
+Default: y if (TARGET_rockchip_armv8_Default || TARGET_rockchip_armv8_DEVICE_friendlyarm_nanopi-r2c || TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r2c)
+Prereq-Check: 1
+Version: 2023.07.02-1
+Depends: +libc @!IN_SDK +PACKAGE_u-boot-nanopi-r2c-rk3328:trusted-firmware-a-rk3328 @TARGET_rockchip_armv8
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: nanopi-r2c-rk3328
+Section: boot
+Category: Boot Loaders
+Title: U-Boot for NanoPi R2C
+Maintainer: Tobias Maedel <openwrt@tbspace.de>
+Source: u-boot-2023.07.02.tar.bz2
+License: GPL-2.0 GPL-2.0+
+LicenseFiles: Licenses/README
+Type: bin
+Hidden: 1
+Description: U-Boot for NanoPi R2C
+http://www.denx.de/wiki/U-Boot
+Tobias Maedel <openwrt@tbspace.de>
+@@
+
+
+Package: u-boot-nanopi-r2s-rk3328
+Default: y if (TARGET_rockchip_armv8_Default || TARGET_rockchip_armv8_DEVICE_friendlyarm_nanopi-r2s || TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r2s)
+Prereq-Check: 1
+Version: 2023.07.02-1
+Depends: +libc @!IN_SDK +PACKAGE_u-boot-nanopi-r2s-rk3328:trusted-firmware-a-rk3328 @TARGET_rockchip_armv8
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: nanopi-r2s-rk3328
+Section: boot
+Category: Boot Loaders
+Title: U-Boot for NanoPi R2S
+Maintainer: Tobias Maedel <openwrt@tbspace.de>
+Source: u-boot-2023.07.02.tar.bz2
+License: GPL-2.0 GPL-2.0+
+LicenseFiles: Licenses/README
+Type: bin
+Hidden: 1
+Description: U-Boot for NanoPi R2S
+http://www.denx.de/wiki/U-Boot
+Tobias Maedel <openwrt@tbspace.de>
+@@
+
+
+Package: u-boot-orangepi-r1-plus-rk3328
+Default: y if (TARGET_rockchip_armv8_Default || TARGET_rockchip_armv8_DEVICE_xunlong_orangepi-r1-plus || TARGET_DEVICE_rockchip_armv8_DEVICE_xunlong_orangepi-r1-plus)
+Prereq-Check: 1
+Version: 2023.07.02-1
+Depends: +libc @!IN_SDK +PACKAGE_u-boot-orangepi-r1-plus-rk3328:trusted-firmware-a-rk3328 @TARGET_rockchip_armv8
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: orangepi-r1-plus-rk3328
+Section: boot
+Category: Boot Loaders
+Title: U-Boot for Orange Pi R1 Plus
+Maintainer: Tobias Maedel <openwrt@tbspace.de>
+Source: u-boot-2023.07.02.tar.bz2
+License: GPL-2.0 GPL-2.0+
+LicenseFiles: Licenses/README
+Type: bin
+Hidden: 1
+Description: U-Boot for Orange Pi R1 Plus
+http://www.denx.de/wiki/U-Boot
+Tobias Maedel <openwrt@tbspace.de>
+@@
+
+
+Package: u-boot-orangepi-r1-plus-lts-rk3328
+Default: y if (TARGET_rockchip_armv8_Default || TARGET_rockchip_armv8_DEVICE_xunlong_orangepi-r1-plus-lts || TARGET_DEVICE_rockchip_armv8_DEVICE_xunlong_orangepi-r1-plus-lts)
+Prereq-Check: 1
+Version: 2023.07.02-1
+Depends: +libc @!IN_SDK +PACKAGE_u-boot-orangepi-r1-plus-lts-rk3328:trusted-firmware-a-rk3328 @TARGET_rockchip_armv8
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: orangepi-r1-plus-lts-rk3328
+Section: boot
+Category: Boot Loaders
+Title: U-Boot for Orange Pi R1 Plus LTS
+Maintainer: Tobias Maedel <openwrt@tbspace.de>
+Source: u-boot-2023.07.02.tar.bz2
+License: GPL-2.0 GPL-2.0+
+LicenseFiles: Licenses/README
+Type: bin
+Hidden: 1
+Description: U-Boot for Orange Pi R1 Plus LTS
+http://www.denx.de/wiki/U-Boot
+Tobias Maedel <openwrt@tbspace.de>
+@@
+
+
+Package: u-boot-roc-cc-rk3328
+Default: y if (TARGET_rockchip_armv8_Default || TARGET_rockchip_armv8_DEVICE_firefly_roc-rk3328-cc || TARGET_DEVICE_rockchip_armv8_DEVICE_firefly_roc-rk3328-cc)
+Prereq-Check: 1
+Version: 2023.07.02-1
+Depends: +libc @!IN_SDK +PACKAGE_u-boot-roc-cc-rk3328:trusted-firmware-a-rk3328 @TARGET_rockchip_armv8
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: roc-cc-rk3328
+Section: boot
+Category: Boot Loaders
+Title: U-Boot for ROC-RK3328-CC
+Maintainer: Tobias Maedel <openwrt@tbspace.de>
+Source: u-boot-2023.07.02.tar.bz2
+License: GPL-2.0 GPL-2.0+
+LicenseFiles: Licenses/README
+Type: bin
+Hidden: 1
+Description: U-Boot for ROC-RK3328-CC
+http://www.denx.de/wiki/U-Boot
+Tobias Maedel <openwrt@tbspace.de>
+@@
+
+
+Package: u-boot-rock64-rk3328
+Default: y if (TARGET_rockchip_armv8_Default || TARGET_rockchip_armv8_DEVICE_pine64_rock64 || TARGET_DEVICE_rockchip_armv8_DEVICE_pine64_rock64)
+Prereq-Check: 1
+Version: 2023.07.02-1
+Depends: +libc @!IN_SDK +PACKAGE_u-boot-rock64-rk3328:trusted-firmware-a-rk3328 @TARGET_rockchip_armv8
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: rock64-rk3328
+Section: boot
+Category: Boot Loaders
+Title: U-Boot for Rock64
+Maintainer: Tobias Maedel <openwrt@tbspace.de>
+Source: u-boot-2023.07.02.tar.bz2
+License: GPL-2.0 GPL-2.0+
+LicenseFiles: Licenses/README
+Type: bin
+Hidden: 1
+Description: U-Boot for Rock64
+http://www.denx.de/wiki/U-Boot
+Tobias Maedel <openwrt@tbspace.de>
+@@
+
+
+Package: u-boot-rock-pi-e-rk3328
+Default: y if (TARGET_rockchip_armv8_Default || TARGET_rockchip_armv8_DEVICE_radxa_rock-pi-e || TARGET_DEVICE_rockchip_armv8_DEVICE_radxa_rock-pi-e)
+Prereq-Check: 1
+Version: 2023.07.02-1
+Depends: +libc @!IN_SDK +PACKAGE_u-boot-rock-pi-e-rk3328:trusted-firmware-a-rk3328 @TARGET_rockchip_armv8
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: rock-pi-e-rk3328
+Section: boot
+Category: Boot Loaders
+Title: U-Boot for ROCK Pi E
+Maintainer: Tobias Maedel <openwrt@tbspace.de>
+Source: u-boot-2023.07.02.tar.bz2
+License: GPL-2.0 GPL-2.0+
+LicenseFiles: Licenses/README
+Type: bin
+Hidden: 1
+Description: U-Boot for ROCK Pi E
+http://www.denx.de/wiki/U-Boot
+Tobias Maedel <openwrt@tbspace.de>
+@@
+
+
+Package: u-boot-nanopi-r5c-rk3568
+Default: y if (TARGET_rockchip_armv8_Default || TARGET_rockchip_armv8_DEVICE_friendlyarm_nanopi-r5c || TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r5c)
+Prereq-Check: 1
+Version: 2023.07.02-1
+Depends: +libc @!IN_SDK +PACKAGE_u-boot-nanopi-r5c-rk3568:trusted-firmware-a-rk3568 @TARGET_rockchip_armv8
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: nanopi-r5c-rk3568
+Section: boot
+Category: Boot Loaders
+Title: U-Boot for NanoPi R5C
+Maintainer: Tobias Maedel <openwrt@tbspace.de>
+Source: u-boot-2023.07.02.tar.bz2
+License: GPL-2.0 GPL-2.0+
+LicenseFiles: Licenses/README
+Type: bin
+Hidden: 1
+Description: U-Boot for NanoPi R5C
+http://www.denx.de/wiki/U-Boot
+Tobias Maedel <openwrt@tbspace.de>
+@@
+
+
+Package: u-boot-nanopi-r5s-rk3568
+Default: y if (TARGET_rockchip_armv8_Default || TARGET_rockchip_armv8_DEVICE_friendlyarm_nanopi-r5s || TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r5s)
+Prereq-Check: 1
+Version: 2023.07.02-1
+Depends: +libc @!IN_SDK +PACKAGE_u-boot-nanopi-r5s-rk3568:trusted-firmware-a-rk3568 @TARGET_rockchip_armv8
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: nanopi-r5s-rk3568
+Section: boot
+Category: Boot Loaders
+Title: U-Boot for NanoPi R5S
+Maintainer: Tobias Maedel <openwrt@tbspace.de>
+Source: u-boot-2023.07.02.tar.bz2
+License: GPL-2.0 GPL-2.0+
+LicenseFiles: Licenses/README
+Type: bin
+Hidden: 1
+Description: U-Boot for NanoPi R5S
+http://www.denx.de/wiki/U-Boot
+Tobias Maedel <openwrt@tbspace.de>
+@@
+
+

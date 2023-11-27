@@ -1,0 +1,21 @@
+Source-Makefile: package/rooter-custom-builds/ext-lte/Makefile
+
+Package: ext-lte
+Submenu: BuildSections
+Version: 1.000-1
+Depends: +libc +ext-rooter-basic +build-admin +build-iphone +build-luci +build-openvpn +build-wifi +pingtest +ext-extra +ext-zerotier +extramenu +ext-blockport +ext-domain +ext-blacklist +bwmon +ext-speedtest +luci-app-sqm +ext-wireguard +build-usb +luci-app-ddns +ddns-scripts +luci-app-wol +ext-splashconfig +qfirehose +464xlat
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: utils
+Category: ROOter
+Repository: base
+Title: Custom Basic packages
+Maintainer: Created by DM/makefile by Cobia@whirlpool
+Source: 
+Type: ipkg
+Description:   Custom Basic packages
+Created by DM/makefile by Cobia@whirlpool
+@@
+
+

@@ -1,0 +1,20 @@
+Source-Makefile: package/rooter-custom-builds/ext-wifirepeat/Makefile
+
+Package: ext-wifirepeat
+Version: 1.000-1
+Depends: +libc +luci +luci-compat +luci-app-rootervpn +openvpn-easy-rsa +openvpn-openssl +ext-wireguard +webconsole +464xlat +iptables-mod-hashlimit +luci-theme-argon +ca-bundle +ca-certificates +libustream-wolfssl +luci-app-hotspot +wireless-tools +nano +picocom +wpad +wget +httping +curl
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: utils
+Category: ROOter
+Repository: base
+Title: Wifi Repeater
+Maintainer: Created by DM/makefile by Cobia@whirlpool
+Source: 
+Type: ipkg
+Description:   Helper scripts to enable ROOter support for Normal routers
+Created by DM/makefile by Cobia@whirlpool
+@@
+
+

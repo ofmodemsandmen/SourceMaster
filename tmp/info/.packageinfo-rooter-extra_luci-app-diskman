@@ -1,0 +1,110 @@
+Source-Makefile: package/rooter-extra/luci-app-diskman/Makefile
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-app-diskman
+Submenu: 3. Applications
+Version: v0.2.13
+Depends: +libc +e2fsprogs +libparted +smartmontools +blkid +kmod-fs-vfat +dosfstools +kmod-fs-msdos +kmod-nls-base +kmod-nls-utf8 +kmod-nls-cp932 +kmod-nls-cp936 +kmod-nls-cp950 +kmod-fs-exfat +exfat-mkfs +exfat-fsck +kmod-fs-ntfs +kmod-fs-btrfs +PACKAGE_luci-app-diskman_INCLUDE_ntfs_3g_utils:ntfs-3g-utils +PACKAGE_luci-app-diskman_INCLUDE_btrfs_progs:btrfs-progs +PACKAGE_luci-app-diskman_INCLUDE_lsblk:lsblk +PACKAGE_luci-app-diskman_INCLUDE_mdadm:mdadm +PACKAGE_luci-app-diskman_INCLUDE_kmod_md_raid456:mdadm +PACKAGE_luci-app-diskman_INCLUDE_kmod_md_raid456:kmod-md-raid456 +PACKAGE_luci-app-diskman_INCLUDE_kmod_md_linears:mdadm +PACKAGE_luci-app-diskman_INCLUDE_kmod_md_linears:kmod-md-linear +luci-lua-runtime
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: Disk Manager interface for LuCI
+Maintainer: OpenWrt LuCI community
+Source: 
+License: AGPL-3.0
+Type: ipkg
+Description:    Disk Manager interface for LuCI
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+Config:
+config PACKAGE_luci-app-diskman_INCLUDE_ntfs_3g_utils
+	depends on PACKAGE_luci-app-diskman
+	bool "Include ntfs-3g-utils"
+	default y
+config PACKAGE_luci-app-diskman_INCLUDE_btrfs_progs
+	depends on PACKAGE_luci-app-diskman
+	bool "Include btrfs-progs"
+	default y
+config PACKAGE_luci-app-diskman_INCLUDE_lsblk
+	depends on PACKAGE_luci-app-diskman
+	bool "Include lsblk"
+	default y
+config PACKAGE_luci-app-diskman_INCLUDE_mdadm
+	depends on PACKAGE_luci-app-diskman
+	bool "Include mdadm"
+	default n
+config PACKAGE_luci-app-diskman_INCLUDE_kmod_md_raid456
+	depends on PACKAGE_luci-app-diskman_INCLUDE_mdadm
+	bool "Include kmod-md-raid456"
+	default n
+config PACKAGE_luci-app-diskman_INCLUDE_kmod_md_linears
+	depends on PACKAGE_luci-app-diskman_INCLUDE_mdadm
+	bool "Include kmod-md-linear"
+	default n
+@@
+
+Package: luci-i18n-diskman-pl
+Default: LUCI_LANG_pl||(ALL&&m)
+Version: x
+Depends: +libc luci-app-diskman
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-diskman - pl translation
+Maintainer: lisaac <https://github.com/lisaac/luci-app-diskman>
+Source: 
+License: AGPL-3.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-diskman - Polski (Polish)
+lisaac <https://github.com/lisaac/luci-app-diskman>
+@@
+
+Package: luci-i18n-diskman-zh-cn
+Default: LUCI_LANG_zh_Hans||(ALL&&m)
+Version: x
+Depends: +libc luci-app-diskman
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-diskman - zh-cn translation
+Maintainer: lisaac <https://github.com/lisaac/luci-app-diskman>
+Source: 
+License: AGPL-3.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-diskman - 简体中文 (Chinese Simplified)
+lisaac <https://github.com/lisaac/luci-app-diskman>
+@@
+
+Package: luci-i18n-diskman-zh-tw
+Default: LUCI_LANG_zh_Hant||(ALL&&m)
+Version: x
+Depends: +libc luci-app-diskman
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-diskman - zh-tw translation
+Maintainer: lisaac <https://github.com/lisaac/luci-app-diskman>
+Source: 
+License: AGPL-3.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-diskman - 繁體中文 (Chinese Traditional)
+lisaac <https://github.com/lisaac/luci-app-diskman>
+@@
+
+
