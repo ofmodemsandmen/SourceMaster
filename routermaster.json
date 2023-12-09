@@ -21,7 +21,7 @@
 		"ext": "-upgrade.bin",
 		"custom": {
 			"name": {
-				"model": "W1698AX",
+				"model": "WS1698AX",
 				"hostname": "WS1698AX"
 			},
 			"wifi": {
