@@ -1,0 +1,28 @@
+#!/bin/sh /etc/rc.common
+# Copyright (C) 2013 OpenWrt.org
+
+START=96
+USE_PROCD=1
+
+log() {
+	logger -t "ws1698" "$@"
+}
+
+start_service()
+{
+	newsn=$(hexdump -C -s 0x24 /dev/mtd3 |sed -n "1p"|cut -c 9-28|sed 's/\ //g')
+	mac=""
+	be=0
+	for i in 0 2 4 6 8 10
+	do
+		if [ "$be" = "0" ]; then
+			mac=$mac${newsn:$i:2}
+			be="1"
+		else
+			mac=$mac":"${newsn:$i:2}
+		fi
+	done
+	uci set network.wan.macaddr="$mac"
+	uci commit network
+	/etc/init.d/network restart
+}

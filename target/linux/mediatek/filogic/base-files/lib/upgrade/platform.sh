@@ -1,5 +1,9 @@
 REQUIRE_IMAGE_METADATA=1
 
+log() {
+modlog "Image Check " "$@"
+}
+
 xiaomi_initial_setup()
 {
 	# initialize UBI and setup uboot-env if it's running on initramfs
@@ -115,6 +119,9 @@ platform_do_upgrade() {
 		CI_KERNPART="fit"
 		nand_do_upgrade "$1"
 		;;
+	huasifei,ws1698)
+		nand_do_upgrade "$1"
+		;;
 	mercusys,mr90x-v1)
 		CI_UBIPART="ubi0"
 		nand_do_upgrade "$1"
@@ -153,7 +160,15 @@ platform_check_image() {
 	bananapi,bpi-r3|\
 	cmcc,rax3000m)
 		[ "$magic" != "d00dfeed" ] && {
-			echo "Invalid image type."
+			log "Invalid image type."
+			return 1
+		}
+		return 0
+		;;
+	huasifei,ws1698)
+		magic="$(dd if="$1" bs=1 skip=257 count=5 2>/dev/null)"
+		[ "$magic" != "ustar" ] && {
+			log "Invalid image type."
 			return 1
 		}
 		return 0
