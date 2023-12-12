@@ -80,7 +80,7 @@
 
 		led-cellular-4 {
 			label = "white:cellular-4";
-			gpios = <&pio 4 GPIO_ACTIVE_LOW>;
+			gpios = <&pio 4 GPIO_ACTIVE_HIGH>;
 		};
 	};
 
