@@ -36,5 +36,15 @@
 			},
 			"files": "/huasifei/files1698/"	
 		}
+	},
+	"X3000": {
+		"details": "Gl.iNet X3000",
+		"type": "1",
+		"build": "2305",
+		"config": ".config_x3000",
+		"image": "openwrt-mediatek-filogic-glinet_gl-x3000-squashfs-sysupgrade.bin",
+		"imagepath": "/mediatek/filogic/",
+		"mod": "GliNet_X3000",
+		"ext": "-upgrade.bin"
 	}
 }

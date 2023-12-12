@@ -1,0 +1,292 @@
+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+
+/dts-v1/;
+#include "mt7981.dtsi"
+
+/ {
+	model = "GL.iNet GL-X3000";
+	compatible = "glinet,gl-x3000", "mediatek,mt7981";
+
+	aliases {
+		label-mac-device = &gmac0;
+		led-boot = &led_power;
+		led-failsafe = &led_power;
+		led-running = &led_power;
+		led-upgrade = &led_power;
+		serial0 = &uart0;
+	};
+
+	chosen {
+		stdout-path = "serial0:115200n8";
+		bootargs-append = " root=PARTLABEL=rootfs rootwait";
+	};
+	
+	reg_5v: regulator-5v {
+		compatible = "regulator-fixed";
+		regulator-name = "fixed-5V";
+		regulator-min-microvolt = <5000000>;
+		regulator-max-microvolt = <5000000>;
+		regulator-boot-on;
+		regulator-always-on;
+	};
+
+	gpio-keys {
+		compatible = "gpio-keys";
+
+		reset {
+			label = "reset";
+			linux,code = <KEY_RESTART>;
+			gpios = <&pio 1 GPIO_ACTIVE_LOW>;
+		};
+	};
+
+	leds {
+		compatible = "gpio-leds";
+
+		led_power: led-power-white {
+			label = "white:power";
+			gpios = <&pio 39 GPIO_ACTIVE_LOW>;
+		};
+
+		led-internet {
+			label = "white:internet";
+			gpios = <&pio 31 GPIO_ACTIVE_LOW>;
+		};
+
+		led-wlan-2g {
+			label = "white:wlan-2g";
+			gpios = <&pio 30 GPIO_ACTIVE_LOW>;
+		};
+
+		led-wlan-5g {
+			label = "white:wlan-5g";
+			gpios = <&pio 38 GPIO_ACTIVE_LOW>;
+		};
+
+		led-cellular-1 {
+			label = "white:cellular-1";
+			gpios = <&pio 6 GPIO_ACTIVE_LOW>;
+		};
+
+		led-cellular-2 {
+			label = "white:cellular-2";
+			gpios = <&pio 7 GPIO_ACTIVE_LOW>;
+		};
+
+		led-cellular-3 {
+			label = "white:cellular-3";
+			gpios = <&pio 8 GPIO_ACTIVE_LOW>;
+		};
+
+		led-cellular-4 {
+			label = "white:cellular-4";
+			gpios = <&pio 4 GPIO_ACTIVE_LOW>;
+		};
+	};
+
+	gpio-export {
+		compatible = "gpio-export";
+
+		usb-power {
+			gpio-export,name = "usb-power";
+			gpio-export,output = <1>;
+			gpios = <&pio 12 GPIO_ACTIVE_HIGH>;
+		};
+
+		hub-power {
+			gpio-export,name = "hub-power";
+			gpio-export,output = <1>;
+			gpios = <&pio 5 GPIO_ACTIVE_HIGH>;
+		};
+
+		cellular-power {
+			gpio-export,name = "cellular-power";
+			gpio-export,output = <1>;
+			gpios = <&pio 11 GPIO_ACTIVE_HIGH>;
+		};
+
+		cellular-control {
+			gpio-export,name = "cellular-control";
+			gpio-export,output = <1>;
+			gpios = <&pio 9 GPIO_ACTIVE_HIGH>;
+		};
+
+		cellular-reset {
+			gpio-export,name = "cellular-reset";
+			gpio-export,output = <0x00>;
+			gpios = <&pio 10 GPIO_ACTIVE_HIGH>;
+		};
+
+		thread-reset {
+			gpio-export,name = "thread-reset";
+			gpio-export,output = <1>;
+			gpios = <&pio 26 GPIO_ACTIVE_HIGH>;
+		};
+
+		thread-dfu {
+			gpio-export,name = "thread-dfu";
+			gpio-export,output = <1>;
+			gpios = <&pio 27 GPIO_ACTIVE_HIGH>;
+		};
+	};
+
+	reg_3p3v: regulator-3p3v {
+		compatible = "regulator-fixed";
+		regulator-name = "fixed-3.3V";
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+		regulator-boot-on;
+		regulator-always-on;
+	};
+
+	fan_5v: regulator-fan-5v {
+		compatible = "regulator-fixed";
+		regulator-name = "fan";
+		regulator-min-microvolt = <5000000>;
+		regulator-max-microvolt = <5000000>;
+		gpio = <&pio 28 GPIO_ACTIVE_HIGH>;
+		enable-active-high;
+		regulator-boot-on;
+	};
+};
+
+&pwm {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pwm_pins>;
+
+	status = "okay";
+};
+
+&fan {
+	pwms = <&pwm 0 40000 0>;
+	fan-supply = <&fan_5v>;
+	interrupt-parent = <&pio>;
+	interrupts = <29 IRQ_TYPE_EDGE_RISING>;
+	status = "okay";
+};
+
+&pio {
+	mmc0_pins_default: mmc0-pins-default {
+		mux {
+			function = "flash";
+			groups = "emmc_45";
+		};
+	};
+	
+	mmc0_pins_uhs: mmc0-pins-uhs {
+		mux {
+			function = "flash";
+			groups = "emmc_45";
+		};
+	};
+
+	pwm_pins: pwm0-pins {
+		mux {
+			function = "pwm";
+			groups = "pwm0_1";
+		};
+	};
+
+	pcie_pins: pcie-pins {
+		mux {
+			function = "pcie";
+			groups = "pcie_pereset", "pcie_clk", "pcie_wake";
+		};
+	};
+	
+	uart1_pins: uart1-pins-g1 {
+		mux {
+			function = "uart";
+			groups = "uart1_3";
+		};
+	};
+};
+
+&uart0 {
+	status = "okay";
+};
+
+&uart1 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&uart1_pins>;
+	status = "okay";
+};
+
+&watchdog {
+	status = "okay";
+};
+
+&eth {
+	status = "okay";
+
+	pinctrl-names = "default";
+	pinctrl-0 = <&mdio_pins>;
+
+	gmac0: mac@0 {
+		compatible = "mediatek,eth-mac";
+		reg = <0>;
+
+		phy-mode = "2500base-x";
+		phy-handle = <&phy5>;
+	};
+
+	gmac1: mac@1 {
+		compatible = "mediatek,eth-mac";
+		reg = <1>;
+		phy-mode = "gmii";
+		phy-handle = <&int_gbe_phy>;
+	};
+};
+
+&mdio_bus {
+	reset-gpios = <&pio 14 GPIO_ACTIVE_LOW>;
+	reset-delay-us = <600>;
+	reset-post-delay-us = <20000>;
+
+	phy5: ethernet-phy@5 {
+		reg = <5>;
+		compatible = "ethernet-phy-ieee802.3-c45";
+	};
+};
+
+&usb_phy {
+	status = "okay";
+};
+
+&wifi {
+	status = "okay";
+};
+
+&xhci {
+	phys = <&u2port0 PHY_TYPE_USB2>;
+	vbus-supply = <&reg_5v>;
+	mediatek,u3p-dis-msk = <0x01>;
+	status = "okay";
+};
+
+&mmc0 {
+	status = "okay";
+
+	pinctrl-names = "default", "state_uhs";
+	pinctrl-0 = <&mmc0_pins_default>;
+	pinctrl-1 = <&mmc0_pins_uhs>;
+	bus-width = <8>;
+	max-frequency = <52000000>;
+	vmmc-supply = <&reg_3p3v>;
+	cap-mmc-highspeed;
+	status = "okay";
+};
+
+&pcie {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pcie_pins>;
+	status = "okay";
+};
+
+&fan {
+	pwms = <&pwm 0 40000 0>;
+	fan-supply = <&fan_5v>;
+	interrupt-parent = <&pio>;
+	interrupts = <29 IRQ_TYPE_EDGE_RISING>;
+	status = "okay";
+};

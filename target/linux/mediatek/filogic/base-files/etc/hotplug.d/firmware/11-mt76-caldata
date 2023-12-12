@@ -23,6 +23,7 @@ case "$FIRMWARE" in
 			;;
 		esac
 		;;
+	glinet,gl-x3000|\
 	ubnt,unifi-6-plus)
 		caldata_extract_mmc "factory" 0x0 0x1000
 		;;

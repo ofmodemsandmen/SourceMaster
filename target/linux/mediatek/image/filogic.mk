@@ -857,4 +857,18 @@ endif
   IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
 endef
 TARGET_DEVICES += huasifei_ws1698
- 
+
+define Device/glinet_gl-x3000
+  DEVICE_VENDOR := GL.iNet
+  DEVICE_MODEL := GL-X3000
+  DEVICE_DTS := mt7981b-glinet-gl-x3000
+  DEVICE_DTS_DIR := ../dts
+  DEVICE_PACKAGES := e2fsprogs f2fsck mkf2fs kmod-usb3 kmod-usb2 \
+						kmod-mt7981-firmware mt7981-wo-firmware \
+						kmod-hwmon-pwmfan kmod-mmc kmod-usbip-client \
+						x3000
+  SUPPORTED_DEVICES += glinet,x3000-emmc
+  IMAGES := sysupgrade.bin
+  IMAGE/sysupgrade.bin := sysupgrade-tar | append-gl-metadata
+endef
+TARGET_DEVICES += glinet_gl-x3000
