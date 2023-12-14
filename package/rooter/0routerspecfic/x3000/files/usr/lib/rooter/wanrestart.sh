@@ -4,7 +4,7 @@ log() {
 	modlog "WAN Restart" "$@"
 }
 
-sleep 45
+sleep 60
 log "Restart WAN"
 ifup wan
 #ubus call network.interface.wan up
