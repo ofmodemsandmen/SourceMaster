@@ -1,0 +1,8 @@
+#!/bin/sh
+
+logger -t URL-DEBUG "hotplug (iface): action='$ACTION' interface='$INTERFACE'"
+
+if [ "$ACTION" = ifdown -a "$INTERFACE" = "wan" ]; then
+	sleep 5
+	ifup wan
+fi
