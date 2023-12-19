@@ -66,7 +66,7 @@ define Download/fixup4cd_dat
   FILE:=$(RPI_FIRMWARE_FILE)-fixup4cd.dat
   URL:=$(RPI_FIRMWARE_URL)
   URL_FILE:=fixup4cd.dat
-  HASH:=83a985aa0d73844786f3b3bf674826c520212f6f72fc6a890f2ebb5f87de5d8c
+  HASH:=3cf1aef5f596ca106203ed5dac9ad45e85929ec55ce44c813588645e174442ec
 endef
 $(eval $(call Download,fixup4cd_dat))
 
