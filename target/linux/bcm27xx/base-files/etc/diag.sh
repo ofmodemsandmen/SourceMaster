@@ -14,7 +14,6 @@ set_state() {
 	raspberrypi,400 |\
 	raspberrypi,4-compute-module |\
 	raspberrypi,4-model-b |\
-	raspberrypi,5-model-b |\
 	raspberrypi,model-b-plus)
 		status_led="led1"
 		;;
