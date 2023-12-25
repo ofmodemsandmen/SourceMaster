@@ -46,5 +46,15 @@
 		"imagepath": "/mediatek/filogic/",
 		"mod": "GliNet_X3000",
 		"ext": "-upgrade.bin"
+	},
+	"MT3000": {
+		"details": "Gl.iNet MT3000",
+		"type": "1",
+		"build": "2305",
+		"config": ".config_mt3000",
+		"image": "openwrt-mediatek-filogic-glinet_gl-mt3000-squashfs-sysupgrade.bin",
+		"imagepath": "/mediatek/filogic/",
+		"mod": "GliNet_MT3000",
+		"ext": "-upgrade.bin"
 	}
 }
