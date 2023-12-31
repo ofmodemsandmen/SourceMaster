@@ -87,25 +87,6 @@ platform_do_upgrade() {
 			;;
 		esac
 		;;
-	bananapi,bpi-r4)
-		local rootdev=$(readlink /sys/devices/platform/fitblk/lower_dev)
-		rootdev="${rootdev##*/}"
-		rootdev="${rootdev%p[0-9]*}"
-		fitblk /dev/fit0
-		[ -e /dev/fitrw ] && fitblk /dev/fitrw
-		echo "$rootdev" > /tmp/rootdev
-		case "$rootdev" in
-		mmc*)
-			CI_ROOTDEV="$rootdev"
-			CI_KERNPART="production"
-			emmc_do_upgrade "$1"
-			;;
-		ubiblock*)
-			CI_KERNPART="fit"
-			nand_do_upgrade "$1"
-			;;
-		esac
-		;;
 	cmcc,rax3000m)
 		case "$(cmdline_get_var root)" in
 		/dev/mmc*)
@@ -179,7 +160,6 @@ platform_check_image() {
 
 	case "$board" in
 	bananapi,bpi-r3|\
-	bananapi,bpi-r4|\
 	cmcc,rax3000m)
 		[ "$magic" != "d00dfeed" ] && {
 			log "Invalid image type."
@@ -210,13 +190,6 @@ platform_copy_config() {
 	cmcc,rax3000m)
 		case "$(cmdline_get_var root)" in
 		/dev/mmc*)
-			emmc_copy_config
-			;;
-		esac
-		;;
-	bananapi,bpi-r4)
-		case "$(cat /tmp/rootdev)" in
-		mmc*)
 			emmc_copy_config
 			;;
 		esac
