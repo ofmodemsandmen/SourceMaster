@@ -205,6 +205,51 @@ endif
 endef
 TARGET_DEVICES += bananapi_bpi-r3
 
+define Device/bananapi_bpi-r4
+  DEVICE_VENDOR := Bananapi
+  DEVICE_MODEL := BPi-R4
+  DEVICE_DTS := mt7988a-bananapi-bpi-r4
+  DEVICE_DTS_CONFIG := config-mt7988a-bananapi-bpi-r4
+  DEVICE_DTS_DIR := $(DTS_DIR)/
+  DEVICE_DTS_LOADADDR := 0x45f00000
+  DEVICE_DTS_OVERLAY:= mt7988a-bananapi-bpi-r4-emmc mt7988a-bananapi-bpi-r4-rtc mt7988a-bananapi-bpi-r4-sd mt7988a-bananapi-bpi-r4-wifi-mt7996a
+  DEVICE_DTC_FLAGS := --pad 4096
+  DEVICE_PACKAGES := kmod-hwmon-pwmfan kmod-i2c-mux-pca954x kmod-eeprom-at24 kmod-mt7996-firmware \
+		     kmod-rtc-pcf8563 kmod-sfp kmod-usb3 e2fsprogs f2fsck mkf2fs mt7988-wo-firmware
+  IMAGES := sysupgrade.itb
+  KERNEL_LOADADDR := 0x46000000
+  KERNEL_INITRAMFS_SUFFIX := -recovery.itb
+  ARTIFACTS := \
+	       emmc-preloader.bin emmc-bl31-uboot.fip \
+	       sdcard.img.gz \
+	       snand-preloader.bin snand-bl31-uboot.fip
+  ARTIFACT/emmc-preloader.bin	:= mt7988-bl2 emmc-comb
+  ARTIFACT/emmc-bl31-uboot.fip	:= mt7988-bl31-uboot bananapi_bpi-r4-emmc
+  ARTIFACT/snand-preloader.bin	:= mt7988-bl2 spim-nand-comb
+  ARTIFACT/snand-bl31-uboot.fip	:= mt7988-bl31-uboot bananapi_bpi-r4-snand
+  ARTIFACT/sdcard.img.gz	:= mt798x-gpt sdmmc |\
+				   pad-to 17k | mt7988-bl2 sdmmc-comb |\
+				   pad-to 6656k | mt7988-bl31-uboot bananapi_bpi-r4-sdmmc |\
+				$(if $(CONFIG_TARGET_ROOTFS_INITRAMFS),\
+				   pad-to 12M | append-image-stage initramfs-recovery.itb | check-size 44m |\
+				) \
+				   pad-to 44M | mt7988-bl2 spim-nand-comb |\
+				   pad-to 45M | mt7988-bl31-uboot bananapi_bpi-r4-snand |\
+				   pad-to 51M | mt7988-bl2 emmc-comb |\
+				   pad-to 52M | mt7988-bl31-uboot bananapi_bpi-r4-emmc |\
+				   pad-to 56M | mt798x-gpt emmc |\
+				$(if $(CONFIG_TARGET_ROOTFS_SQUASHFS),\
+				   pad-to 64M | append-image squashfs-sysupgrade.itb | check-size |\
+				) \
+				  gzip
+  IMAGE_SIZE := $$(shell expr 64 + $$(CONFIG_TARGET_ROOTFS_PARTSIZE))m
+  KERNEL			:= kernel-bin | gzip
+  KERNEL_INITRAMFS := kernel-bin | lzma | \
+	fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb with-initrd | pad-to 64k
+  IMAGE/sysupgrade.itb := append-kernel | fit gzip $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb external-with-rootfs | pad-rootfs | append-metadata
+endef
+TARGET_DEVICES += bananapi_bpi-r4
+
 define Device/cetron_ct3003
   DEVICE_VENDOR := Cetron
   DEVICE_MODEL := CT3003
@@ -755,6 +800,23 @@ define Device/zbtlink_zbt-z8102ax
   IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
 endef
 TARGET_DEVICES += zbtlink_zbt-z8102ax
+
+define Device/zbtlink_zbt-z8102axv2
+  DEVICE_VENDOR := Zbtlink
+  DEVICE_MODEL := ZBT-Z8102AX V2
+  DEVICE_DTS := mt7981b-zbtlink-zbt-z8102axv2
+  DEVICE_DTS_DIR := ../dts
+  DEVICE_PACKAGES := kmod-mt7981-firmware mt7981-wo-firmware kmod-usb2 kmod-usb3 
+  KERNEL_IN_UBI := 1
+  UBINIZE_OPTS := -E 5
+  BLOCKSIZE := 128k
+  PAGESIZE := 2048
+  IMAGE_SIZE := 65536k
+  IMAGES += factory.bin
+  IMAGE/factory.bin := append-ubi | check-size $$(IMAGE_SIZE)
+  IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
+endef
+TARGET_DEVICES += zbtlink_zbt-z8102axv2
 
 define Device/zyxel_ex5601-t0-stock
   DEVICE_VENDOR := Zyxel

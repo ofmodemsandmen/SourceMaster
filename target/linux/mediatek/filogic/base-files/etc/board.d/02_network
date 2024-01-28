@@ -18,6 +18,7 @@ mediatek_setup_interfaces()
 		;;
 	asus,tuf-ax4200|\
 	mediatek,mt7981-rfb|\
+	zbtlink,zbt-z8102axv2|\
 	zbtlink,zbt-z8102ax)
 		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3 lan4" eth1
 		;;
@@ -26,6 +27,9 @@ mediatek_setup_interfaces()
 		;;
 	bananapi,bpi-r3)
 		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3 lan4 sfp2" "eth1 wan"
+		;;
+	bananapi,bpi-r4)
+		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3 eth1" "wan eth2"
 		;;
 	cetron,ct3003|\
 	cudy,wr3000-v1|\
@@ -101,6 +105,9 @@ mediatek_setup_macs()
 		;;
 	bananapi,bpi-r3)
 		wan_mac=$(macaddr_add $(cat /sys/class/net/eth0/address) 1)
+		;;
+	bananapi,bpi-r4)
+		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3 eth1" "wan eth2"
 		;;
 	cetron,ct3003)
 		lan_mac=$(mtd_get_mac_binary "art" 0)
