@@ -16,8 +16,8 @@ rm -f /tmp/mhiusb
 tousb="0"
 da=$(echo "$mfirm" | grep "AA")
 if [ ! -z "$da" ]; then
-	ATCMDD="AT+QUIMSLOT=1"
-	OX=$($ROOTER/gcom/gcom-locked "/dev/ttyUSB$CPORT" "run-at.gcom" "$CURRMODEM" "$ATCMDD")
+	#ATCMDD="AT+QUIMSLOT=1"
+	#OX=$($ROOTER/gcom/gcom-locked "/dev/ttyUSB$CPORT" "run-at.gcom" "$CURRMODEM" "$ATCMDD")
 	ATCMDD="AT+QCFG=\"data_interface\""
 	OX=$($ROOTER/gcom/gcom-locked "/dev/ttyUSB$CPORT" "run-at.gcom" "$CURRMODEM" "$ATCMDD")
 	usb=$(echo "$OX" | grep "1")
