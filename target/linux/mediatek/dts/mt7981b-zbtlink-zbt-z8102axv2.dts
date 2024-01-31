@@ -142,6 +142,9 @@
 		spi-max-frequency = <52000000>;
 		spi-tx-buswidth = <4>;
 		spi-rx-buswidth = <4>;
+		mediatek,nmbm;
+		mediatek,bmt-max-ratio = <1>;
+		mediatek,bmt-max-reserved-blocks = <64>;
 
 		partitions {
 			compatible = "fixed-partitions";
@@ -154,11 +157,11 @@
 				read-only;
 			};
  
-			partition@0 {
-				label = "bl2";
-				reg = <0x0000000 0x0100000>;
-				read-only;
-			};
+//			partition@0 {
+//				label = "bl2";
+//				reg = <0x0000000 0x0100000>;
+//				read-only;
+//			};
 
 			partition@100000 {
 				label = "u-boot-env";
