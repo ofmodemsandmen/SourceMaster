@@ -57,6 +57,16 @@
 		"mod": "GliNet_MT3000",
 		"ext": "-upgrade.bin"
 	},
+	"MT6000": {
+		"details": "Gl.iNet MT6000",
+		"type": "1",
+		"build": "2305",
+		"config": ".config_mt6000",
+		"image": "openwrt-mediatek-filogic-glinet_gl-mt6000-squashfs-sysupgrade.bin",
+		"imagepath": "/mediatek/filogic/",
+		"mod": "GliNet_MT6000",
+		"ext": "-upgrade.bin"
+	},
 	"Z8102V2": {
 		"details": "ZBT Z8102AX V2",
 		"type": "1",
