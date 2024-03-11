@@ -86,6 +86,7 @@
 		"image": "openwrt-mediatek-filogic-cmcc_rax3000m-squashfs-sysupgrade.itb",
 		"imagepath": "/mediatek/filogic/",
 		"mod": "CMCC-RAX3000M",
-		"ext": "-upgrade.itb"
+		"ext": "-upgrade.itb",
+		"addons": ["rax3000.zip"]
 	}
 }
