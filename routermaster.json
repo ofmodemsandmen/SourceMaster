@@ -77,5 +77,15 @@
 		"mod": "ZBT-Z8102AX-V2",
 		"ext": "-upgrade.bin",
 		"addons": ["Flash8102.txt", "SerialRecovery.zip"]
+	},
+	"RAX3000": {
+		"details": "CMCC RAX3000M",
+		"type": "1",
+		"build": "2305",
+		"config": ".config_rax3000",
+		"image": "openwrt-mediatek-filogic-cmcc_rax3000m-squashfs-sysupgrade.itb",
+		"imagepath": "/mediatek/filogic/",
+		"mod": "CMCC-RAX3000M",
+		"ext": "-upgrade.itb"
 	}
 }
