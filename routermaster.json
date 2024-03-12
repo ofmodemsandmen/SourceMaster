@@ -88,5 +88,31 @@
 		"mod": "CMCC-RAX3000M",
 		"ext": "-upgrade.itb",
 		"addons": ["rax3000.zip"]
+	},
+	"MF286D": {
+		"details": "ZTE MF286D",
+		"type": "2",
+		"build": "2102",
+		"config": ".config_mf286d",
+		"image1": "openwrt-ipq40xx-generic-zte_mf286d-squashfs-sysupgrade.bin",	
+		"image2": "openwrt-ipq40xx-generic-zte_mf286d-initramfs-zImage.itb",
+		"imagepath": "/ipq40xx/generic/",
+		"mod": "ZTE-MF286D",
+		"ext1": "-upgrade.bin",
+		"ext2": "-initramfs-zImage.itb",
+		"addons": ["readme.pdf"]
+	},
+	"MF289F": {
+		"details": "ZTE MF289F",
+		"type": "2",
+		"build": "2102",
+		"config": ".config_mf289f",
+		"image1": "openwrt-ipq40xx-generic-zte_mf289f-squashfs-sysupgrade.bin",	
+		"image2": "openwrt-ipq40xx-generic-zte_mf289f-initramfs-zImage.itb",
+		"imagepath": "/ipq40xx/generic/",
+		"mod": "ZTE-MF289F",
+		"ext1": "-upgrade.bin",
+		"ext2": "-initramfs-zImage.itb",
+		"addons": ["readme.pdf"]
 	}
 }

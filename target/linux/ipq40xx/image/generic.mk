@@ -1172,7 +1172,7 @@ define Device/zte_mf28x_common
 	BLOCKSIZE := 128k
 	PAGESIZE := 2048
 	KERNEL_IN_UBI := 1
-	DEVICE_PACKAGES := kmod-usb-net-qmi-wwan kmod-usb-serial-option uqmi
+	DEVICE_PACKAGES := kmod-usb-net-qmi-wwan kmod-usb-serial-option
 endef
 
 define Device/zte_mf282plus
