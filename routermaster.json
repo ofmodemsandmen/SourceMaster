@@ -114,5 +114,20 @@
 		"ext1": "-upgrade.bin",
 		"ext2": "-initramfs-zImage.itb",
 		"addons": ["readme.pdf"]
+	},
+	"RASPPIZ2": {
+		"details": "Raspberry Pi Zero 2 SD",
+		"type": "3",
+		"build": "2102",
+		"config": ".config_rasppiz2",
+		"image1": "openwrt-bcm27xx-bcm2710-rpi-3-ext4-sysupgrade.img.gz",
+		"image2": "openwrt-bcm27xx-bcm2710-rpi-3-ext4-sysupgrade.img",
+		"image3": "openwrt-bcm27xx-bcm2710-rpi-3-squashfs-sysupgrade.img.gz",
+		"image4": "openwrt-bcm27xx-bcm2710-rpi-3-squashfs-sysupgrade.img",
+		"imagepath": "/bcm27xx/bcm2710/", 
+		"mod": "RaspberryPi-Zero-2-SD",
+		"ext1": "-ext4.img",
+		"ext2": "-squashfs.img",
+		"addons": ["readme.pdf", "readmeSD.txt"]
 	}
 }
