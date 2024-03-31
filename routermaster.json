@@ -67,17 +67,6 @@
 		"mod": "GliNet_MT6000",
 		"ext": "-upgrade.bin"
 	},
-	"Z8102V2": {
-		"details": "ZBT Z8102AX V2",
-		"type": "1",
-		"build": "2305",
-		"config": ".config_z8102v2",
-		"image": "openwrt-mediatek-filogic-zbtlink_zbt-z8102axv2-squashfs-sysupgrade.bin",
-		"imagepath": "/mediatek/filogic/",
-		"mod": "ZBT-Z8102AX-V2",
-		"ext": "-upgrade.bin",
-		"addons": ["Flash8102.txt", "SerialRecovery.zip"]
-	},
 	"RAX3000": {
 		"details": "CMCC RAX3000M",
 		"type": "1",
