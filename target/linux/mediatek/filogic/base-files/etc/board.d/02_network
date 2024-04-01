@@ -18,7 +18,8 @@ mediatek_setup_interfaces()
 		;;
 	asus,tuf-ax4200|\
 	mediatek,mt7981-rfb|\
-	zbtlink,zbt-z8102axv2|\
+	z8102ax-128m|\
+	z8102ax-64m|\
 	zbtlink,zbt-z8102ax)
 		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3 lan4" eth1
 		;;

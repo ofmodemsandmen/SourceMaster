@@ -7,8 +7,8 @@
 #include "mt7981.dtsi"
 
 / {
-	model = "Zbtlink ZBT-Z8102AX V2";
-	compatible = "zbtlink,zbt-z8102axv2", "mediatek,mt7981";
+	model = "ZBT Z8102AX";
+	compatible = "z8102ax", "mediatek,mt7981", "zbtlink,zbt-z8102ax";
 
 	aliases {
 		serial0 = &uart0;
@@ -16,14 +16,12 @@
 		led-failsafe = &led_status_red;
 		led-running = &led_status_green;
 		led-upgrade = &led_status_green;
+		label-mac-device = &gmac0;
 	};
 
-	memory {
-		reg = <0 0x40000000 0 0x40000000>;
-	};
-	
 	chosen {
 		stdout-path = "serial0:115200n8";
+		bootargs = "earlycon=uart8250,mmio32,0x11002000 console=ttyS0,115200n8 loglevel=8";
 	};
 
 	gpio-keys {
@@ -48,46 +46,82 @@
 
 		led_status_red: red {
 			label = "red:status";
-			gpios = <&pio 9 GPIO_ACTIVE_LOW>;
+			gpios = <&pio 9 GPIO_ACTIVE_HIGH>;
+			color = <LED_COLOR_ID_RED>;
+			function = LED_FUNCTION_STATUS;
 		};
 
 		led_status_green: green {
 			label = "green:status";
 			gpios = <&pio 10 GPIO_ACTIVE_LOW>;
+			color = <LED_COLOR_ID_GREEN>;
+			function = LED_FUNCTION_STATUS;
 		};
 		
 		led_status_blue: blue {
 			label = "blue:status";
 			gpios = <&pio 11 GPIO_ACTIVE_LOW>;
+			color = <LED_COLOR_ID_BLUE>;
+			function = LED_FUNCTION_STATUS;
 		};
 		
-		led_status_4g: 4g {
-			label = "4g:status";
+		led_status_modem1: modem1 {
+			label = "modem1:status";
 			gpios = <&pio 8 GPIO_ACTIVE_LOW>;
+			color = <LED_COLOR_ID_BLUE>;
+			function = LED_FUNCTION_USB;
+			function-enumerator = <0>;
 		};
 		
-		led_status_4g2: 4g2 {
-			label = "4g2:status";
+		led_status_modem2: modem2 {
+			label = "modem2:status";
 			gpios = <&pio 13 GPIO_ACTIVE_LOW>;
+			color = <LED_COLOR_ID_BLUE>;
+			function = LED_FUNCTION_USB;
+			function-enumerator = <1>;
 		};
-
 	};
-	
+
 	watchdog {
 		compatible = "linux,wdt-gpio";
 		gpios = <&pio 2 GPIO_ACTIVE_HIGH>;
 		hw_algo = "toggle";
 		hw_margin_ms = <1000>;
 	};
-	
-	usb_vbus: regulator-usb-vbus {
-		compatible = "regulator-fixed";
-		regulator-name = "usb_vbus";
-		regulator-min-microvolt = <5000000>;
-		regulator-max-microvolt = <5000000>;
-		gpio = <&pio 12 GPIO_ACTIVE_HIGH>;
-		enable-active-high;
-		regulator-boot-on;
+
+	gpio-export {
+		compatible = "gpio-export";
+		#size-cells = <0>;
+
+		pcie {
+			gpio-export,name = "pcie_power";
+			gpio-export,output = <1>;
+			gpios = <&pio 3 GPIO_ACTIVE_HIGH>;
+		};
+
+		modem1 {
+			gpio-export,name = "modem1";
+			gpio-export,output = <1>;
+			gpios = <&pio 4 GPIO_ACTIVE_HIGH>;
+		};
+
+		modem2 {
+			gpio-export,name = "modem2";
+			gpio-export,output = <1>;
+			gpios = <&pio 5 GPIO_ACTIVE_HIGH>;
+		};
+
+		sim1 {
+			gpio-export,name = "sim1";
+			gpio-export,output = <1>;
+			gpios = <&pio 6 GPIO_ACTIVE_HIGH>;
+		};
+
+		sim2 {
+			gpio-export,name = "sim2";
+			gpio-export,output = <1>;
+			gpios = <&pio 7 GPIO_ACTIVE_HIGH>;
+		};
 	};
 };
 
@@ -113,6 +147,8 @@
 		reg = <1>;
 		phy-mode = "gmii";
 		phy-handle = <&int_gbe_phy>;
+		nvmem-cell-names = "mac-address";
+		nvmem-cells = <&macaddr_factory_02a>;
 	};
 };
 
@@ -142,6 +178,7 @@
 		spi-max-frequency = <52000000>;
 		spi-tx-buswidth = <4>;
 		spi-rx-buswidth = <4>;
+
 		mediatek,nmbm;
 		mediatek,bmt-max-ratio = <1>;
 		mediatek,bmt-max-reserved-blocks = <64>;
@@ -151,12 +188,6 @@
 			#address-cells = <1>;
 			#size-cells = <1>;
 
-//			partition@0_all {
-//				label = "spi0.0";
-//				reg = <0x0 0x8000000>;
-//				read-only;
-//			};
- 
 			partition@0 {
 				label = "bl2";
 				reg = <0x0000000 0x0100000>;
@@ -175,14 +206,13 @@
 			};
 
 			partition@380000 {
-				label = "fip";
+				label = "FIP";
 				reg = <0x0380000 0x0200000>;
 				read-only;
 			};
 
-			partition@580000 {
+			nand_rootfs: partition@580000 {
 				label = "ubi";
-				reg = <0x0580000 0x4000000>;
 			};
 		};
 	};
@@ -198,7 +228,6 @@
 			label = "lan1";
 			nvmem-cell-names = "mac-address";
 			nvmem-cells = <&macaddr_factory_004>;
-			mac-address-increment = <2>;
 		};
 
 		port@1 {
@@ -206,7 +235,6 @@
 			label = "lan2";
 			nvmem-cell-names = "mac-address";
 			nvmem-cells = <&macaddr_factory_004>;
-			mac-address-increment = <2>;
 		};
 
 		port@2 {
@@ -214,7 +242,6 @@
 			label = "lan3";
 			nvmem-cell-names = "mac-address";
 			nvmem-cells = <&macaddr_factory_004>;
-			mac-address-increment = <2>;
 		};
 
 		port@3 {
@@ -222,11 +249,11 @@
 			label = "lan4";
 			nvmem-cell-names = "mac-address";
 			nvmem-cells = <&macaddr_factory_004>;
-			mac-address-increment = <2>;
 		};
 
 		port@6 {
 			reg = <6>;
+			label = "cpu";
 			ethernet = <&gmac0>;
 			phy-mode = "2500base-x";
 
@@ -240,6 +267,22 @@
 };
 
 &pio {
+	gpio-line-names = 
+			"wps",
+			"reset",
+			"watchdog",
+			"pcie",
+			"modem1",
+			"modem2",
+			"sim1",
+			"sim2",
+			"modem1_status",
+			"red_status",
+			"green_status",
+			"blue_status",
+			"",
+			"modem2_status";
+
 	spi0_flash_pins: spi0-pins {
 		mux {
 			function = "spi";
@@ -268,20 +311,17 @@
 	status = "okay";
 };
 
-&wifi {
-	status = "okay";
-
-	mediatek,mtd-eeprom = <&factory 0x0>;
-};
-
 &usb_phy {
 	status = "okay";
 };
 
 &xhci {
-	vbus-supply = <&usb_vbus>;
-
 	status = "okay";
+};
+
+&wifi {
+	status = "okay";
+	mediatek,mtd-eeprom = <&factory 0x0>;
 };
 
 &factory {
@@ -291,5 +331,8 @@
 
 	macaddr_factory_004: macaddr@004 {
 		reg = <0x004 0x6>;
+	};
+	macaddr_factory_02a: macaddr@02a {
+		reg = <0x02a 0x6>;
 	};
 };

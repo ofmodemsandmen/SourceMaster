@@ -67,7 +67,8 @@ cmcc,rax3000m)
 	;;
 cetron,ct3003|\
 netgear,wax220|\
-zbtlink,zbt-z8102axv2|\
+z8102ax-128m|\
+z8102ax-64m|\
 zbtlink,zbt-z8102ax)
 	ubootenv_add_uci_config "/dev/mtd1" "0x0" "0x20000" "0x20000"
 	;;

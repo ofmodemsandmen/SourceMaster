@@ -12,6 +12,14 @@ zbtlink,zbt-z8103ax)
 	ucidef_add_gpio_switch "sim1" "SIM 1" "sim1" "1"
 	ucidef_add_gpio_switch "sim2" "SIM 2" "sim2" "1"
 	;;
+z8102ax-64m|\
+z8102ax-128m)
+	ucidef_add_gpio_switch "modem1" "Power 1st modem" "modem1" "1"
+	ucidef_add_gpio_switch "modem2" "Power 2nd modem" "modem2" "1"
+	ucidef_add_gpio_switch "pcie" "Power PCIe port" "pcie" "1"
+	ucidef_add_gpio_switch "sim1" "SIM 1" "sim1" "1"
+	ucidef_add_gpio_switch "sim2" "SIM 2" "sim2" "1"
+	;;
 esac
 
 board_config_flush

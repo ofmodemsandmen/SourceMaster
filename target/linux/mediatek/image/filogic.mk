@@ -756,22 +756,38 @@ define Device/zbtlink_zbt-z8102ax
 endef
 TARGET_DEVICES += zbtlink_zbt-z8102ax
 
-define Device/zbtlink_zbt-z8102axv2
-  DEVICE_VENDOR := Zbtlink
-  DEVICE_MODEL := ZBT-Z8102AX V2
-  DEVICE_DTS := mt7981b-zbtlink-zbt-z8102axv2
+define Device/z8102axv2
+  DEVICE_VENDOR := ZBT
+  DEVICE_MODEL := Z8102AX
+#  DEVICE_DTS := mt7981b-zbt-z8102ax
   DEVICE_DTS_DIR := ../dts
-  DEVICE_PACKAGES := kmod-mt7981-firmware mt7981-wo-firmware kmod-usb2 kmod-usb3 
+  DEVICE_PACKAGES := kmod-mt7981-firmware mt7981-wo-firmware kmod-usb2 kmod-usb3
   KERNEL_IN_UBI := 1
   UBINIZE_OPTS := -E 5
   BLOCKSIZE := 128k
   PAGESIZE := 2048
-  IMAGE_SIZE := 65536k
-  IMAGES += factory.bin
-  IMAGE/factory.bin := append-ubi | check-size $$(IMAGE_SIZE)
+ifneq ($(CONFIG_TARGET_ROOTFS_INITRAMFS),)
+  ARTIFACTS := initramfs-factory.ubi
+  ARTIFACT/initramfs-factory.ubi := append-image-stage initramfs-kernel.bin | ubinize-kernel
+endif
   IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
 endef
-TARGET_DEVICES += zbtlink_zbt-z8102axv2
+
+define Device/z8102ax-64m
+  $(call Device/z8102axv2)
+  DEVICE_VARIANT := 64 NAND
+  DEVICE_DTS := mt7981b-zbt-z8102ax-64m
+  IMAGE_SIZE := 65536k
+endef
+TARGET_DEVICES += z8102ax-64m
+
+define Device/z8102ax-128m
+  $(call Device/z8102axv2)
+  DEVICE_VARIANT := 128 NAND
+  DEVICE_DTS := mt7981b-zbt-z8102ax-128m
+  IMAGE_SIZE := 131072k
+endef
+TARGET_DEVICES += z8102ax-128m
 
 define Device/zyxel_ex5601-t0-stock
   DEVICE_VENDOR := Zyxel
