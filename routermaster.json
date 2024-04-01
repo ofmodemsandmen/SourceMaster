@@ -1,14 +1,15 @@
 {
 	"Z8102": {
-		"details": "ZBT Z8102AX",
-		"type": "1",
+		"details": "ZBT Z8102AX V1/V2",
+		"type": "6",
 		"build": "2305",
-		"config": ".config_z8102",
-		"image": "openwrt-mediatek-filogic-zbtlink_zbt-z8102ax-squashfs-sysupgrade.bin",
+		"config": ".config_z8102v2",
+		"image1": "ZBT-Z8102AX-V1",
+		"image2": "ZBT-Z8102AX-V2",
 		"imagepath": "/mediatek/filogic/",
 		"mod": "ZBT-Z8102AX",
-		"ext": "-upgrade.bin",
-		"addons": ["Flash8102.txt", "SerialRecovery.zip"]
+		"ext1": "-upgrade.bin",
+		"ext2": "-upgrade.bin"
 	},
 	"WS1698": {
 		"details": "Huasifei WS1698AX",
@@ -118,21 +119,5 @@
 		"ext1": "-ext4.img",
 		"ext2": "-squashfs.img",
 		"addons": ["readme.pdf", "readmeSD.txt"]
-	},
-	"Z8102V2": {
-		"details": "ZBT Z8102AX V2",
-		"type": "1",
-		"build": "2305",
-		"config": ".config_z8102v2",
-		"image": "openwrt-mediatek-filogic-z8102ax-128m-squashfs-sysupgrade.bin",
-		"imagepath": "/mediatek/filogic/",
-		"mod": "ZBT-Z8102AX-V2",
-		"ext": "-upgrade.bin",
-		"addons": ["Flash8102.txt", "SerialRecovery.zip"],
-		"custom": {
-			"name": {
-				"model": "ZBT Z8102AX V2"
-			}
-		}
 	}
 }

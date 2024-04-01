@@ -4,7 +4,7 @@ core="-j7"
 #core=""
 
 DATE=$(date +%Y-%m-%d)
-routersjson="./routermaster.json"
+routersjson="./routerz8.json"
 templatefolder="template/"
 customfolder="custom/"
 	
@@ -39,7 +39,7 @@ buldimage() {
 						temp="${temp1%\"}"
 						model_ext="${temp#\"}"
 					;;
-					"2"|"6" )
+					"2" )
 						temp1=$(jshon -e "$model_up" -e image1  < $routersjson)
 						temp="${temp1%\"}"
 						model_image1="${temp#\"}"
@@ -899,34 +899,6 @@ buldimage() {
 			#
 			del_addons
 			cd ..
-		;;
-		"6" )
-			./buildz8 z8102
-			./buildz8 z8102v2
-			model_1=$model_image1"-GO"$DATE".zip"
-			model_2=$model_image2"-GO"$DATE".zip"
-			model_mod=$model_mod"-GO"$DATE".zip"
-
-			cd ./images
-			mkdir $model_image1
-			mkdir $model_image2
-
-			unzip $model_1 -d $model_image1
-			unzip $model_2 -d $model_image2
-
-			L1="Flash8102.txt"
-			L2="SerialRecovery.zip"
-			cp "../configfiles/addons/$L1" $L1
-			cp "../configfiles/addons/$L2" $L2
-
-			zip -r $model_mod $model_image1 $model_image2 $L1 $L2
-
-			rm -rf $model_image1
-			rm -rf $model_image2
-			rm $L1
-			rm $L2
-			rm $model_1
-			rm $model_2
 		;;
 	esac
 }
