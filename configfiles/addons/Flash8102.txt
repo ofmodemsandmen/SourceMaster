@@ -26,5 +26,8 @@ an incorrect firmware.
 To flash from factory to ROOter go to the System->Backup/Flash
 menu and flash from there.
 
+If your router has the Intelligent Router factory firmware then you
+have to use the Recovery GUI from above to flash it.
+
 Be sure to deselect Keep Settings and select Force Flash.
 
