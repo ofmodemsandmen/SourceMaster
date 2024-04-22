@@ -552,34 +552,3 @@ define Device/zyxel_nbg6817
 	$(call Device/ZyXELImage)
 endef
 TARGET_DEVICES += zyxel_nbg6817
-
-define Device/netgear_orbi
-	$(call Device/DniImage)
-	SOC := qcom-ipq4019
-	DEVICE_VENDOR := NETGEAR
-	IMAGE/factory.img := append-kernel | pad-offset 128k 64 | \
-		append-uImage-fakehdr filesystem | pad-to $$$$(KERNEL_SIZE) | \
-		append-rootfs | pad-rootfs | netgear-dni
-	IMAGE/sysupgrade.bin/squashfs := append-rootfs | pad-to 64k | \
-		sysupgrade-tar rootfs=$$$$@ | append-metadata
-	DEVICE_PACKAGES := ath10k-firmware-qca9984-ct e2fsprogs kmod-fs-ext4 losetup
-endef
-
-define Device/netgear_lbr20
-	$(call Device/netgear_orbi)
-	DEVICE_MODEL := LBR20
-	NETGEAR_BOARD_ID := LBR20
-	NETGEAR_HW_ID := 29766182+0+256+512+2x2+2x2+2x2+1
-	KERNEL_SIZE := 7340032
-	BLOCKSIZE := 128k
-	PAGESIZE := 2048
-	UBINIZE_OPTS := -E 5
-	IMAGE/factory.img := append-kernel | pad-offset $$$$(BLOCKSIZE) 64 | \
-		append-uImage-fakehdr filesystem | pad-to $$$$(KERNEL_SIZE) | \
-		append-ubi | netgear-dni
-	IMAGE/sysupgrade.bin := append-kernel | pad-offset $$$$(BLOCKSIZE) 64 | \
-		append-uImage-fakehdr filesystem | sysupgrade-tar kernel=$$$$@ | \
-		append-metadata
-	DEVICE_PACKAGES := ipq-wifi-netgear_lbr20 ath10k-firmware-qca9888-ct 
-endef
-TARGET_DEVICES += netgear_lbr20
