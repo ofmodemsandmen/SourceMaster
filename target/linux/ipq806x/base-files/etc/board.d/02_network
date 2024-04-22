@@ -65,9 +65,6 @@ ipq806x_setup_interfaces()
 	meraki,mr52)
 		ucidef_set_interfaces_lan_wan "eth0" "eth1"
 		;;
-	netgear,lbr20)
-        ucidef_set_interface_lan "lan1 lan2"
-        ;;
 	*)
 		echo "Unsupported hardware. Network interfaces not intialized"
 		;;
