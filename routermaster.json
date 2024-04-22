@@ -119,5 +119,18 @@
 		"ext1": "-ext4.img",
 		"ext2": "-squashfs.img",
 		"addons": ["readme.pdf", "readmeSD.txt"]
+	},
+	"LBR20": {
+		"details": "Netgear LBR20",
+		"type": "2",
+		"build": "2102",
+		"config": ".config_lbr20",
+		"image1": "openwrt-ipq40xx-generic-netgear_lbr20-squashfs-sysupgrade.bin",	
+		"image2": "openwrt-ipq40xx-generic-netgear_lbr20-squashfs-factory.img",
+		"imagepath": "/ipq40xx/generic/",
+		"mod": "Netgear-LBR20",
+		"ext1": "-upgrade.bin",
+		"ext2": "-factory.img",
+		"addons": ["readme.pdf"]
 	}
 }
