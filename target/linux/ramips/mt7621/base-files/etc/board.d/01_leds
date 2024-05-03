@@ -256,7 +256,7 @@ zyxel,lte3301-plus)
 zyxel,lte5398-m904)
 	ucidef_set_led_netdev "internet" "LTE/3G Internet Activity" "green:internet" "wwan0" "rx tx"
 	;;
-zbt,z2101ax)
+zblink,zbt-z2101ax)
 	ucidef_set_led_netdev "blue" "wlan2g" "wlan" "wlan0" "link tx rx"
 	ucidef_set_led_netdev "wlan5g" "wlan5g" "wlan" "wlan1" "link tx rx"
 	ucidef_set_led_netdev "wwan0" "wwan0" "blue" "wwan0" "link tx rx"
