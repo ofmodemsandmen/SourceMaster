@@ -147,5 +147,15 @@
 				"model": "ZBT Z2105AX"
 			}
 		}
+	},
+	"Z800": {
+		"details": "ZBT Z800AX",
+		"type": "1",
+		"build": "2305",
+		"config": ".config_z800",
+		"image": "openwrt-qualcommax-ipq807x-zbtlink_zbt-z800ax-squashfs-sysupgrade.bin",
+		"imagepath": "/qualcommax/ipq807x/",
+		"mod": "ZBT-Z800AX",
+		"ext": "-upgrade.bin"
 	}
 }

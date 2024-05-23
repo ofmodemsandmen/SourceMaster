@@ -68,26 +68,26 @@
 
 		led_net: net {
 			color = <LED_COLOR_ID_GREEN>;
-			function = LED_FUNCTION_WAN_ONLINE;
+			//function = LED_FUNCTION_WAN_ONLINE;
 			gpios = <&tlmm 22 GPIO_ACTIVE_HIGH>;
 		};
 
 		module {
 			color = <LED_COLOR_ID_GREEN>;
-			function = LED_FUNCTION_MOBILE;
+			//function = LED_FUNCTION_MOBILE;
 			gpios = <&tlmm 30 GPIO_ACTIVE_HIGH>;
 		};
 
 		wlan2g {
 			color = <LED_COLOR_ID_GREEN>;
-			function = LED_FUNCTION_WLAN_2GHZ;
+			//function = LED_FUNCTION_WLAN_2GHZ;
 			gpios = <&tlmm 42 GPIO_ACTIVE_HIGH>;
 			linux,default-trigger = "phy1radio";
 		};
 
 		wlan5g {
 			color = <LED_COLOR_ID_GREEN>;
-			function =  LED_FUNCTION_WLAN_5GHZ;
+			//function =  LED_FUNCTION_WLAN_5GHZ;
 			gpios = <&tlmm 43 GPIO_ACTIVE_HIGH>;
 			linux,default-trigger = "phy0radio";
 		};
