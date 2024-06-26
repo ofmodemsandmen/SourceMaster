@@ -159,5 +159,32 @@
 		"mod": "ZBT-Z800AX",
 		"ext1": "-upgrade.bin",
 		"ext2": "-factory.bin"
+	},
+	"WS1698-256": {
+		"details": "Huasifei WS1698AX",
+		"type": "1",
+		"build": "2305",
+		"config": ".config_ws1698-256",
+		"image": "openwrt-mediatek-filogic-huasifei_ws1698-256M-squashfs-sysupgrade.bin",
+		"imagepath": "/mediatek/filogic/",
+		"mod": "Huasifei-WS1698AX-256M",
+		"ext": "-upgrade.bin",
+		"custom": {
+			"name": {
+				"model": "WS1698AX-256M",
+				"hostname": "WS1698AX"
+			},
+			"wifi": {
+				"SSID2G": "wifi6-2.4g",
+				"SSID5G": "wifi6-5.8g",
+				"Password": "12345678"
+			},
+			"image": {
+				"Material": "hua.png",
+				"Argon": "hua.png",
+				"Tomato": "hua.png"
+			},
+			"files": "/huasifei/files1698/"	
+		}
 	}
 }
