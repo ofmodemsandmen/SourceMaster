@@ -11,6 +11,7 @@ mediatek_setup_interfaces()
 	acer,predator-w6)
 		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3 game" eth1
 		;;
+	huasifei,ws1698-256M|\
 	huasifei,ws1698)
 		ucidef_add_switch "switch0" \
 			"0:lan:4" "1:lan:3" "2:lan:2" "3:lan:1" "6u@eth0"

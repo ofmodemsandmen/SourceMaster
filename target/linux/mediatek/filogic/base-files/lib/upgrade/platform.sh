@@ -121,6 +121,7 @@ platform_do_upgrade() {
 		CI_KERNPART="fit"
 		nand_do_upgrade "$1"
 		;;
+	huasifei,ws1698-256M|\
 	huasifei,ws1698)
 		nand_do_upgrade "$1"
 		;;
