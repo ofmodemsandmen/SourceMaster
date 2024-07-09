@@ -120,34 +120,6 @@
 		"ext2": "-squashfs.img",
 		"addons": ["readme.pdf", "readmeSD.txt"]
 	},
-	"LBR20": {
-		"details": "Netgear LBR20",
-		"type": "2",
-		"build": "2102",
-		"config": ".config_lbr20",
-		"image1": "openwrt-ipq40xx-generic-netgear_lbr20-squashfs-sysupgrade.bin",	
-		"image2": "openwrt-ipq40xx-generic-netgear_lbr20-squashfs-factory.img",
-		"imagepath": "/ipq40xx/generic/",
-		"mod": "Netgear-LBR20",
-		"ext1": "-upgrade.bin",
-		"ext2": "-factory.img",
-		"addons": ["readme.pdf"]
-	},
-	"Z2105AX": {
-		"details": "ZBT Z2105AX",
-		"type": "1",
-		"config": ".config_z2105ax",
-		"package": "ext-smart",
-		"imagepath": "/ramips/mt7621/",
-		"mod": "ZBT-Z2105AX",
-		"image": "openwrt-ramips-mt7621-zblink_zbt-z2101ax-squashfs-sysupgrade.bin",
-		"ext": "-upgrade.bin",
-		"custom": {
-			"name": {
-				"model": "ZBT Z2105AX"
-			}
-		}
-	},
 	"Z800": {
 		"details": "ZBT Z800AX",
 		"type": "2",
