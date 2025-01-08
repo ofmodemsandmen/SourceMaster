@@ -7,7 +7,7 @@ SCRIPTNAME="$(basename "$0")"
 MWAN3_STATUS_DIR="/var/run/mwan3"
 MWAN3_STATUS_IPTABLES_LOG_DIR="${MWAN3_STATUS_DIR}/iptables_log"
 MWAN3TRACK_STATUS_DIR="/var/run/mwan3track"
-
+ 
 MWAN3_INTERFACE_MAX=""
 
 MMX_MASK=""
